@@ -1,177 +1,303 @@
 <!DOCTYPE html>
 <html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="description" content="CompareProducts - Find and compare amazon products online for free, and buy best reviewed and compared products.">
+        <meta name="author" content="CompareProducts">
+        <meta name="keywords" content="CompareProducts, Products compare, featurecompare, compare amazon products, compare mobile phones, compare laptops, compare electronic goods.">
+        <meta name="robots" content="index, follow">
 
-<head>
-
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="CompareProducts - Find and compare amazon products online for free">
-  <meta name="author" content="CompareProducts">
-  <meta name="keywords" content="CompareProducts, Products compare, featurecompare, compare amazon products, compare mobile phones, compare laptops, compare electronic goods.">
-
-  <title>Compare and find best amazon products online.</title>
-  <link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico">
-
-  <!-- Bootstrap  CSS -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-  <!-- Custom fonts for this template -->
-  <link href="https://fonts.googleapis.com/css?family=Saira+Extra+Condensed:500,700" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Muli:400,400i,800,800i" rel="stylesheet">
-  
-  <!-- Custom css -->
-  <link href="css/resume.css" rel="stylesheet">
-  <meta name="google-site-verification" content="C_bJrMbEFWAdZoM1-phqhxm8H5Q6S1DHo8RaAs6FmDI" />
-  <!-- Global site tag (gtag.js) - Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-5FCCPFDG6X"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-
-    gtag('config', 'G-5FCCPFDG6X');
-  </script>
-</head>
-
-<body>
-
-  <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" id="sideNav">
-    <a class="navbar-brand js-scroll-trigger" href="index.html#home">
-      <span class="d-block d-lg-none">CompareProducts</span>
-      <span class="d-none d-lg-block">
-        <img class="img-circle" src="img/logo.png" alt="CompareProducts logo" height="200px" width="200px" />
-      </span>
-    </a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav">
-        <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="index.html#home">Home</a>
-          </li>
-        <li class="nav-item">
-          <a class="nav-link js-scroll-trigger" onclick = "document.getElementById('disclaimer').hidden=false;" href="index.html#disclaimer">About Us</a>
-        </li>
-      </ul>
-    </div>
-  </nav>
-
-<script type='text/javascript'>
-function encodeQueryData(data) {
-   const ret = [];
-   for (let d in data)
-     ret.push(encodeURIComponent(d) + '=' + encodeURIComponent(data[d]));
-   return ret.join('&');
-}
-const geturl = 'https://rnkeryw2n0.execute-api.ap-south-1.amazonaws.com/Prod/?';
-  function getlinks()
-  {       
-          var cbutton = document.getElementById('comparebutton');
-          cbutton.disabled=true;
-          console.log('disabled');
-          document.getElementById('amzres').innerHTML= '<center><img class="img-circle" src="img/loading.gif" alt="Watch anime tube logo" height="200px" width="200px" ></center>';
-      try {
-
-          var l1 = document.getElementById('l1').value;
-          var l2 = document.getElementById('l2').value;
-          var l3 = document.getElementById('l3').value;
-          var data = { 'l1': l1, 'l2': l2, 'l3': l3 };
-          var querystring = encodeQueryData(data);
-
-          fetch(geturl+querystring)
-          .then(response => {
-            responsecopy = response.clone();
-            if (!response.ok) {
-              console.log(responsecopy.json());
-              
-            }
-            return response.text();
-          })
-          .then(data => {
-              var employee_data = data.split(/\r?\n|\r/);
-              var table_data = '<table class="table table-bordered table-striped table-responsive">';
-              for(var count = 0; count<employee_data.length; count++)
-              {
-              var cell_data = employee_data[count].split("|");
-              table_data += '<tr>';
-              for(var cell_count=0; cell_count<cell_data.length; cell_count++)
-              {
-                if(count === 0)
-                {
-                table_data += '<th>'+cell_data[cell_count]+'</th>';
-                }
-                else
-                {
-                table_data += '<td>'+cell_data[cell_count]+'</td>';
-                }
-              }
-              table_data += '</tr>';
-              }
-              table_data += '</table>';
-              document.getElementById('amzres').innerHTML=table_data;
-              cbutton.disabled=false;
-              console.log('enabled');
-          })
-          .catch(error => {
-                document.getElementById('amzres').innerHTML=error;
-                cbutton.disabled=false;
-                console.log('enabled');
-          });
-
-        } catch (error) {
-              cbutton.disabled=false;
-              console.log('enabled');
-              document.getElementById('amzres').innerHTML=error;
-        }
+        <title>Compare amazon products online and find best amazon products online.</title>
+        <meta property="og:title" content="Compare Products, compare amazon products online" />
+        <meta property="og:site_name" content="CompareProducts - Product comparision website." />
+        <meta property="og:description" content="Compare and buy amazing amazon products online. Find and buy best reviewed and compared products." />
+        <meta property="og:url" content="https://compareproducts.github.io/" />
+        <meta property="og:type" content="website" />
+        <meta property="og:image" content="https://compareproducts.github.io/img/avataaars.svg" />
         
-  }
 
-</script>
-  <div class="container-fluid">
+        <link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico">
+        <!-- Font Awesome icons (free version)-->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js" crossorigin="anonymous"></script>
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="css/styles.css" rel="stylesheet">
+        <!-- Fonts CSS-->
+        <link rel="stylesheet" href="css/heading.css">
+        <link rel="stylesheet" href="css/body.css">
+        
+        <meta name="google-site-verification" content="C_bJrMbEFWAdZoM1-phqhxm8H5Q6S1DHo8RaAs6FmDI" />
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-5FCCPFDG6X"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
 
-    <section class="resume-section p-3 p-lg-5 d-flex align-items-center" id="home">
-      <div class="container-fluid">
-        <h1 class="mb-0">Compare Amazon Products @
-          <span class="text-primary">CompareProducts</span>
-        </h1>
-        <div class="subheading mb-5">Find and compare the best amazon products online.
-        </div>
-        <p class="lead mb-5">CompareProducts is an online portal to help you compare amazon products side by side for free. You can compare upto 3 products at a time. 
-        Just put in the URL's of the amazon products you want to compare. Please Share and spread the word about <B><i>CompareProducts</i></B></p>
-        <!--ads-->
-        <!--<div class="container">-->
-      <table class ="table table-bordered table-striped ">
-        <tr class="row">
-        <td class="col"><p><B>Amazon Product links : </p></B></td>
-        <td class="col"><input type="text" placeholder="https://www.amazon.com" name="l1" id="l1"><i>&nbsp;&nbsp;&nbsp;&nbsp;vs</i></td>
-        <td class="col"><input type="text" placeholder="https://www.amazon.com" name="l2" id="l2"><i>&nbsp;&nbsp;&nbsp;&nbsp;vs</i></td>
-        <td class="col"><input type="text" placeholder="https://www.amazon.com" name="l3" id="l3"></td>
-        </tr>
-      </table>
-      <br>
-      <br>
-      <div class="form-row">
-        <div class="col-12"><center><button type="button" id='comparebutton' class="btn btn-info btn-lg" onclick="getlinks()">Compare</button></center></div>
-      </div>
-      <br>
-      <br>
-      <div id="amzres"></div>
-      </div>
-      </div>
-      
-      
-      </section>
+            gtag('config', 'G-5FCCPFDG6X');
+        </script>
+    </head>
+    <body id="page-top">
+        <nav class="navbar navbar-expand-lg bg-secondary fixed-top" id="mainNav">
+            <div class="container"><a class="navbar-brand js-scroll-trigger" href="#page-top">CompareProducts</a>
+                <button class="navbar-toggler navbar-toggler-right font-weight-bold bg-primary text-white rounded" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">Menu <i class="fas fa-bars"></i></button>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#portfolio">BESTSHOP</a>
+                        </li>
+                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#howtouse">HOW TO USE</a>
+                        </li>
+                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#contact">CONTACT</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <header class="masthead bg-primary text-white text-center" >
+            <div class="container d-flex align-items-center flex-column">
+                <!-- Masthead Avatar Image--><img class="masthead-avatar mb-5" src="img/avataaars.svg" alt="">
+                <!-- Masthead Heading-->
+                <h1 class="masthead-heading mb-0">Compare and buy amazing amazon products online.</h1>
+                <!-- Icon Divider-->
+                <div class="divider-custom divider-light">
+                    <div class="divider-custom-line"></div>
+                    <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+                    <div class="divider-custom-line"></div>
+                </div>
+                <!-- Masthead Subheading-->
+                <h3 class="pre-wrap masthead-subheading font-weight-light mb-0">Best reviewed products in each category. </h3>
+            </div>
+        </header>
+        <script type='text/javascript'>
+            function encodeQueryData(data) {
+            const ret = [];
+            for (let d in data)
+                ret.push(encodeURIComponent(d) + '=' + encodeURIComponent(data[d]));
+            return ret.join('&');
+            }
+            const geturl = 'https://rnkeryw2n0.execute-api.ap-south-1.amazonaws.com/Prod/?';
+            function getlinks()
+            {       
+                    var cbutton = document.getElementById('comparebutton');
+                    cbutton.disabled=true;
+                    console.log('disabled');
+                    document.getElementById('amzres').innerHTML= '<br><center><img class="img-circle" src="img/loading.gif" alt="Loading" height="200px" width="200px" ></center>';
+                try {
 
-    <footer>
-        <div class="container" id = "disclaimer" hidden>
-          <p>CompareProducts is an Amazon Associate. We earn from qualifying purchases.We are a participant in the Amazon Services LLC Associates Program, an affiliate advertising program designed to provide a means for us to earn fees by linking to Amazon.com, Amazon.co.uk, Amazon.it, Amazon.es, Amazon.ca, Amazon.in and affiliated sites.
-Amazon and the Amazon logo (displayed in the price table) are trademarks of Amazon.com, Inc. or its affiliates.</p>
-            <!-- <br> -->
-          <p> &copy; Copyright CompareProducts </p>
-        </div>
-      </footer>
-  </div>
+                    var l1 = document.getElementById('l1').value;
+                    var l2 = document.getElementById('l2').value;
+                    var l3 = document.getElementById('l3').value;
+                    var data = { 'l1': l1, 'l2': l2, 'l3': l3 };
+                    var querystring = encodeQueryData(data);
 
-</body>
+                    fetch(geturl+querystring)
+                    .then(response => {
+                        responsecopy = response.clone();
+                        if (!response.ok) {
+                        console.log(responsecopy.json());
+                        
+                        }
+                        return response.text();
+                    })
+                    .then(data => {
+                        var employee_data = data.split(/\r?\n|\r/);
+                        var table_data = '<br><br><table class="table table-bordered table-striped table-responsive" style="color: #ffffff">';
+                        for(var count = 0; count<employee_data.length; count++)
+                        {
+                        var cell_data = employee_data[count].split("|");
+                        table_data += '<tr>';
+                        for(var cell_count=0; cell_count<cell_data.length; cell_count++)
+                        {
+                            if(count === 0)
+                            {
+                            table_data += '<th>'+cell_data[cell_count]+'</th>';
+                            }
+                            else
+                            {
+                            table_data += '<td>'+cell_data[cell_count]+'</td>';
+                            }
+                        }
+                        table_data += '</tr>';
+                        }
+                        table_data += '</table>';
+                        document.getElementById('amzres').innerHTML=table_data;
+                        cbutton.disabled=false;
+                        console.log('enabled');
+                    })
+                    .catch(error => {
+                            document.getElementById('amzres').innerHTML=error;
+                            cbutton.disabled=false;
+                            console.log('enabled');
+                    });
 
+                    } catch (error) {
+                        cbutton.disabled=false;
+                        console.log('enabled');
+                        document.getElementById('amzres').innerHTML=error;
+                    }
+                    
+            }
+
+        </script>
+
+
+        <section class="page-section bg-primary text-white mb-0" id="compare" style="padding:1.5rem">
+             <div class="container"> 
+                <!--  Compare Section Heading-->
+                
+                <div class="text-center">
+                <div class="form-group row">
+                <div class="col">
+                        <input type="text" placeholder="https://www.amazon.com" name="l1" id="l1" class="form-control"></div>
+                        <div class="col">
+                        <input type="text" placeholder="https://www.amazon.com" name="l2" id="l2" class="form-control"></div>
+                        <div class="col">
+                        <input type="text" placeholder="https://www.amazon.com" name="l3" id="l3" class="form-control"></div>
+                </div>
+                    <br>
+                    <br>
+                    <button type="button" id='comparebutton' class="btn btn-info btn-lg" onclick="getlinks()">Compare</button>
+                    <div id="amzres"></div>
+                </div>
+            </div> 
+        </section>
+        <section class="page-section portfolio" id="portfolio">
+            <div class="container">
+                <!-- Portfolio Section Heading-->
+                <div class="text-center">
+                    <h2 class="page-section-heading text-secondary mb-0 d-inline-block">BESTSHOP</h2>
+                </div>
+                <!-- Icon Divider-->
+                <div class="divider-custom">
+                    <div class="divider-custom-line"></div>
+                    <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+                    <div class="divider-custom-line"></div>
+                </div>
+                <!-- Portfolio Grid Items-->
+                <div class="row justify-content-center">
+                    <!-- Portfolio Items-->
+                    <div class="col-md-6 col-lg-4 mb-5">
+                        <div class="portfolio-item mx-auto h-100 w-100">
+                            <a href = "india/index.html"><img class="img-fluid h-100 w-100" src="img/india.gif" alt="find best products in india">
+                            <h2 hidden> Find and buy best products in India</h2></img>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4 mb-5">
+                        <div class="portfolio-item mx-auto h-100 w-100" >
+                            <img class="img-fluid h-100 w-100" src="img/united kingdom.gif" alt="find best products in United Kingdom"/>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4 mb-5">
+                        <div class="portfolio-item mx-auto h-100 w-100" >
+                            <img class="img-fluid h-100 w-100" src="img/USA.gif" alt="find best products in United States of America"/>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4 mb-5">
+                        <div class="portfolio-item mx-auto h-100 w-100">
+                            <img class="img-fluid h-100 w-100" src="img/germany.gif" alt="find best products in Germany"/>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4 mb-5">
+                        <div class="portfolio-item mx-auto h-100 w-100">
+                            <img class="img-fluid h-100 w-100" src="img/canada.gif" alt="find best products in canada"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+       
+        <section class="page-section bg-primary text-white mb-0" id="howtouse">
+            <div class="container">
+                <!-- About Section Heading-->
+                <div class="text-center">
+                    <h2 class="page-section-heading d-inline-block text-white">HOW TO USE</h2>
+                </div>
+                <!-- Icon Divider-->
+                <div class="divider-custom divider-light">
+                    <div class="divider-custom-line"></div>
+                    <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+                    <div class="divider-custom-line"></div>
+                </div>
+                <!-- About Section Content-->
+                <div class="row">
+                    <div class="col-lg-4 ml-auto">
+                        <p class="pre-wrap lead">CompareProducts is an online portal to help you compare amazon products side by side for free. You can compare upto 3 products at a time.</p>
+                    </div>
+                    <div class="col-lg-4 mr-auto">
+                        <p class="pre-wrap lead">Just put in the URL's of the amazon products you want to compare. Please Share and spread the word about <a href="https://CompareProducts.githuhb.io" style="color: #ffffff"><u><i>CompareProducts!</i></u></a></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="page-section" id="contact">
+            <div class="container">
+                <!-- Contact Section Heading-->
+                <div class="text-center">
+                    <h2 class="page-section-heading text-secondary d-inline-block mb-0">CONTACT</h2>
+                </div>
+                <!-- Icon Divider-->
+                <div class="divider-custom">
+                    <div class="divider-custom-line"></div>
+                    <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+                    <div class="divider-custom-line"></div>
+                </div>
+                <!-- Contact Section Content-->
+                <div class="row justify-content-center">
+                    <div class="col-lg-4">
+                        <div class="d-flex flex-column align-items-center">
+                            <div class="icon-contact mb-3"><i class="fas fa-mobile-alt"></i></div>
+                            <div class="text-muted">Phone</div>
+                            <div class="lead font-weight-bold">(XXX) XXX-XXXX</div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="d-flex flex-column align-items-center">
+                            <div class="icon-contact mb-3"><i class="far fa-envelope"></i></div>
+                            <div class="text-muted">Email</div><a class="lead font-weight-bold" href="mailto:sidemoneyol@gmail.com">compareproducts</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <footer class="footer text-center">
+            <div class="container">
+                <div class="row">
+                    <!-- Footer Location-->
+                    <div class="col-lg-4 mb-5 mb-lg-0">
+                        <h4 class="mb-4">LOCATION</h4>
+                        <p class="pre-wrap lead mb-0">INDIA</p>
+                    </div>
+                    <!-- Footer Social Icons-->
+                    <div class="col-lg-4 mb-5 mb-lg-0">
+                        <h4 class="mb-4">AROUND THE WEB</h4><a class="btn btn-outline-light btn-social mx-1" href="https://www.facebook.com/compareproducts" rel="nofollow" target="_blank"><i class="fab fa-fw fa-facebook-f"></i></a>
+                        <a class="btn btn-outline-light btn-social mx-1" href="https://www.twitter.com/" rel="nofollow" target="_blank"><i class="fab fa-fw fa-twitter"></i></a>
+                        <a class="btn btn-outline-light btn-social mx-1" href="https://www.linkedin.com/in/" rel="nofollow" target="_blank"><i class="fab fa-fw fa-linkedin-in"></i></a>
+                        <a class="btn btn-outline-light btn-social mx-1" href="#"><i class="fab fa-fw fa-dribbble"></i></a>
+                    </div>
+                    <!-- Footer About Text-->
+                    <div class="col-lg-4">
+                        <h4 class="mb-4">ABOUT COMPAREPRODUCTS</h4>
+                        <p class="pre-wrap lead mb-0">“CompareProduct is a participant in the Amazon Associates Program, an affiliate advertising program designed to provide a means for sites to earn advertising fees by advertising and linking to amazon.”</p>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!-- Copyright Section-->
+        <section class="copyright py-4 text-center text-white">
+            <div class="container"><small class="pre-wrap">Copyright © CompareProdutcs 2021</small></div>
+        </section>
+        <!-- Scroll to Top Button (Only visible on small and extra-small screen sizes)-->
+        <div class="scroll-to-top d-lg-none position-fixed"><a class="js-scroll-trigger d-block text-center text-white rounded" href="#page-top"><i class="fa fa-chevron-up"></i></a></div>
+        <!-- Bootstrap core JS-->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+        <!-- Third party plugin JS-->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
+        <!-- Contact form JS
+        <script src="mail/jqBootstrapValidation.js"></script>
+        <script src="mail/contact_me.js"></script>
+        <!-- Core theme JS
+        <script src="js/scripts.js"></script> -->
+    </body>
 </html>
