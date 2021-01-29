@@ -15,7 +15,39 @@
         <meta property="og:url" content="https://compareproducts.github.io/" />
         <meta property="og:type" content="website" />
         <meta property="og:image" content="https://compareproducts.github.io/img/avataaars.svg" />
-        
+        <script type="application/ld+json">         
+        {
+          "@context": "https://schema.org",  
+		  "@type": "NewsArticle",
+          "mainEntityOfPage" :{
+		  		"@type":"WebPage",
+          		"@id": "https://compareproducts.github.io/index.html"
+		 	},        
+          "headline": "Compare amazon products online and find best amazon products online.",
+                
+          "image":{
+                "@context": "https://schema.org",
+                "@type": "ImageObject",  
+                "url":"https://compareproducts.github.io/img/avataaars.svg"
+              },      
+           
+          "datePublished": "2021-01-28T22:00:00+05:30",
+          "dateModified": "2021-01-28T22:00:00+05:30",
+          "author": {
+          		"@type": "organization",
+          		"name": "CompareProducts"
+          },  
+          "publisher":{     
+                "@type": "Organization",
+                "name": "CompareProducts",
+                "logo": {
+                        "@type": "ImageObject",
+                        "url": "https://compareproducts.github.io/img/avataaars.svg"
+                    }
+              },
+         "description":"CompareProducts - Find and compare amazon products online for free, and buy best reviewed and compared products."        
+        }
+    </script>
 
         <link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico">
         <!-- Font Awesome icons (free version)-->
@@ -162,20 +194,20 @@
             </div> 
         </section>
         <section class="page-section portfolio" id="portfolio">
-            <div class="container">
-                <!-- Portfolio Section Heading-->
+            <!--<div class="container">
+                <!-- Portfolio Section Heading
                 <div class="text-center">
                     <h2 class="page-section-heading text-secondary mb-0 d-inline-block">BESTSHOP</h2>
                 </div>
-                <!-- Icon Divider-->
+                <!-- Icon Divider
                 <div class="divider-custom">
                     <div class="divider-custom-line"></div>
                     <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
                     <div class="divider-custom-line"></div>
                 </div>
-                <!-- Portfolio Grid Items-->
+                <!-- Portfolio Grid Items
                 <div class="row justify-content-center">
-                    <!-- Portfolio Items-->
+                    <!-- Portfolio Items
                     <div class="col-md-6 col-lg-4 mb-5">
                         <div class="portfolio-item mx-auto h-100 w-100">
                             <a href = "india/index.html"><img class="img-fluid h-100 w-100" src="img/india.gif" alt="find best products in india">
@@ -205,6 +237,11 @@
                     </div>
                 </div>
             </div>
+            -->
+            <script>
+        var pf = document.getElementById('portfolio');
+        fetch('https://compareproducts.github.io/portfolio.html').then(response => response.text()).then(html => {pf.innerHTML=html;});
+        </script>
         </section>
        
         <section class="page-section bg-primary text-white mb-0" id="howtouse">
