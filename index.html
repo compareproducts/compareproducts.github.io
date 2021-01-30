@@ -50,8 +50,6 @@
     </script>
 
         <link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico">
-        <!-- Font Awesome icons (free version)-->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js" crossorigin="anonymous"></script>
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="css/styles.css" rel="stylesheet">
         <!-- Fonts CSS-->
@@ -194,54 +192,15 @@
             </div> 
         </section>
         <section class="page-section portfolio" id="portfolio">
-            <!--<div class="container">
-                <!-- Portfolio Section Heading
-                <div class="text-center">
-                    <h2 class="page-section-heading text-secondary mb-0 d-inline-block">BESTSHOP</h2>
-                </div>
-                <!-- Icon Divider
-                <div class="divider-custom">
-                    <div class="divider-custom-line"></div>
-                    <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
-                    <div class="divider-custom-line"></div>
-                </div>
-                <!-- Portfolio Grid Items
-                <div class="row justify-content-center">
-                    <!-- Portfolio Items
-                    <div class="col-md-6 col-lg-4 mb-5">
-                        <div class="portfolio-item mx-auto h-100 w-100">
-                            <a href = "india/index.html"><img class="img-fluid h-100 w-100" src="img/india.gif" alt="find best products in india">
-                            <h2 hidden> Find and buy best products in India</h2></img>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-4 mb-5">
-                        <div class="portfolio-item mx-auto h-100 w-100" >
-                            <img class="img-fluid h-100 w-100" src="img/united kingdom.gif" alt="find best products in United Kingdom"/>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-4 mb-5">
-                        <div class="portfolio-item mx-auto h-100 w-100" >
-                            <img class="img-fluid h-100 w-100" src="img/USA.gif" alt="find best products in United States of America"/>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-4 mb-5">
-                        <div class="portfolio-item mx-auto h-100 w-100">
-                            <img class="img-fluid h-100 w-100" src="img/germany.gif" alt="find best products in Germany"/>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-4 mb-5">
-                        <div class="portfolio-item mx-auto h-100 w-100">
-                            <img class="img-fluid h-100 w-100" src="img/canada.gif" alt="find best products in canada"/>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            -->
             <script>
-        var pf = document.getElementById('portfolio');
-        fetch('https://compareproducts.github.io/portfolio.html').then(response => response.text()).then(html => {pf.innerHTML=html;});
-        </script>
+            const redir = new URLSearchParams(window.location.search).get('redir');
+            if (redir!=null)
+            {
+                window.location = redir;
+            }
+            var pf = document.getElementById('portfolio');
+            fetch('https://compareproducts.github.io/portfolio.html').then(response => response.text()).then(html => {pf.innerHTML=html;});
+            </script>
         </section>
        
         <section class="page-section bg-primary text-white mb-0" id="howtouse">
@@ -283,14 +242,14 @@
                 <div class="row justify-content-center">
                     <div class="col-lg-4">
                         <div class="d-flex flex-column align-items-center">
-                            <div class="icon-contact mb-3"><i class="fas fa-mobile-alt"></i></div>
+                            <div class="icon-contact mb-3"><div class="container"><img src="./img/phone.svg"></img></div></div>
                             <div class="text-muted">Phone</div>
                             <div class="lead font-weight-bold">(XXX) XXX-XXXX</div>
                         </div>
                     </div>
                     <div class="col-lg-4">
                         <div class="d-flex flex-column align-items-center">
-                            <div class="icon-contact mb-3"><i class="far fa-envelope"></i></div>
+                            <div class="icon-contact mb-3"><div class="container"><img src="./img/email.svg"></img></div></div>
                             <div class="text-muted">Email</div><a class="lead font-weight-bold" href="mailto:sidemoneyol@gmail.com">compareproducts</a>
                         </div>
                     </div>
@@ -307,10 +266,10 @@
                     </div>
                     <!-- Footer Social Icons-->
                     <div class="col-lg-4 mb-5 mb-lg-0">
-                        <h4 class="mb-4">AROUND THE WEB</h4><a class="btn btn-outline-light btn-social mx-1" href="https://www.facebook.com/compareproducts" rel="nofollow" target="_blank"><i class="fab fa-fw fa-facebook-f"></i></a>
-                        <a class="btn btn-outline-light btn-social mx-1" href="https://www.twitter.com/" rel="nofollow" target="_blank"><i class="fab fa-fw fa-twitter"></i></a>
-                        <a class="btn btn-outline-light btn-social mx-1" href="https://www.linkedin.com/in/" rel="nofollow" target="_blank"><i class="fab fa-fw fa-linkedin-in"></i></a>
-                        <a class="btn btn-outline-light btn-social mx-1" href="#"><i class="fab fa-fw fa-dribbble"></i></a>
+                        <h4 class="mb-4">AROUND THE WEB</h4><a class="btn btn-outline-light btn-social mx-1" href="https://www.facebook.com/compareproducts" rel="nofollow" target="_blank"><img src="./img/fb.svg"></img></a>
+                        <a class="btn btn-outline-light btn-social mx-1" href="https://www.twitter.com/" rel="nofollow" target="_blank"><img src="./img/twitter.svg"></img></a>
+                        <a class="btn btn-outline-light btn-social mx-1" href="https://www.linkedin.com/in/" rel="nofollow" target="_blank"><img src="./img/linkedin.svg"></img></a>
+                        <a class="btn btn-outline-light btn-social mx-1" href="#"><img src="./img/dribble.svg"></img></a>
                     </div>
                     <!-- Footer About Text-->
                     <div class="col-lg-4">
