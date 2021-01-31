@@ -15,6 +15,13 @@
         <meta property="og:url" content="https://compareproducts.github.io/" />
         <meta property="og:type" content="website" />
         <meta property="og:image" content="https://compareproducts.github.io/img/avataaars.svg" />
+        <script>
+            const redir = new URLSearchParams(window.location.search).get('redir');
+            if (redir!=null)
+            {
+                window.location = redir;
+            }
+        </script>
         <script type="application/ld+json">         
         {
           "@context": "https://schema.org",  
@@ -91,7 +98,7 @@
                 <!-- Icon Divider-->
                 <div class="divider-custom divider-light">
                     <div class="divider-custom-line"></div>
-                    <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+                    <div class="divider-custom-icon"><div class="container"><img height="40px" width="40px" src="./img/star.svg"></img></div></div>
                     <div class="divider-custom-line"></div>
                 </div>
                 <!-- Masthead Subheading-->
@@ -193,11 +200,6 @@
         </section>
         <section class="page-section portfolio" id="portfolio">
             <script>
-            const redir = new URLSearchParams(window.location.search).get('redir');
-            if (redir!=null)
-            {
-                window.location = redir;
-            }
             var pf = document.getElementById('portfolio');
             fetch('https://compareproducts.github.io/portfolio.html').then(response => response.text()).then(html => {pf.innerHTML=html;});
             </script>
@@ -212,7 +214,7 @@
                 <!-- Icon Divider-->
                 <div class="divider-custom divider-light">
                     <div class="divider-custom-line"></div>
-                    <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+                    <div class="divider-custom-icon"><div class="container"><img height="40px" width="40px" src="./img/star.svg"></img></div></div>
                     <div class="divider-custom-line"></div>
                 </div>
                 <!-- About Section Content-->
@@ -235,7 +237,7 @@
                 <!-- Icon Divider-->
                 <div class="divider-custom">
                     <div class="divider-custom-line"></div>
-                    <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+                    <div class="divider-custom-icon"><div class="container"><img height="40px" width="40px" src="./img/starblue.svg"></img></div></div>
                     <div class="divider-custom-line"></div>
                 </div>
                 <!-- Contact Section Content-->
