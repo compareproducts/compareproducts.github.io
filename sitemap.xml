@@ -23,4 +23,12 @@
 <loc>https://compareproducts.github.io/phones/best-phones-under-20000.html</loc>
 <changefreq>weekly</changefreq>
 </url>
+<url>
+<loc>https://compareproducts.github.io/phones/best-phones-under-15000.html</loc>
+<changefreq>weekly</changefreq>
+</url>
+<url>
+<loc>https://compareproducts.github.io/phones/best-phones-under-10000.html</loc>
+<changefreq>weekly</changefreq>
+</url>
 </urlset>
